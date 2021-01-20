@@ -1,0 +1,46 @@
+<ng-container *ngIf = "displayedColumns!=null && displayedColumns.length>0">
+<mat-form-field >
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+  
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort> 
+       <!-- Action Column -->
+       <ng-container matColumnDef="Action">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+        <td mat-cell *matCellDef="let row"> 
+          <mat-icon title="update" class="actionButton" (click)= "editRange(row)" >edit</mat-icon>
+           <mat-icon title="update" class="actionButton" (click)= "deleteRange(row)" >delete</mat-icon>
+        </td>
+      </ng-container> 
+      <ng-container matColumnDef="Id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Id </th>
+        <td mat-cell *matCellDef="let row"> {{row.Id}} </td>
+      </ng-container>
+  
+      <!-- range To Column -->
+      <ng-container matColumnDef="RangeFrom">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Range From </th>
+        <td mat-cell *matCellDef="let row"> {{row.RangeFrom}} </td>
+      </ng-container>
+       <!-- Range From Column -->
+       <ng-container matColumnDef="RangeTo">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Range To </th>
+        <td mat-cell *matCellDef="let row"> {{row.RangeTo}} </td>
+      </ng-container>
+      <!-- IsActive Column-->
+      <ng-container matColumnDef="IsActive">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Is Active </th>
+        <td mat-cell *matCellDef="let row"> {{row.IsActive}} </td>
+      </ng-container>  
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+      </tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+</ng-container>
+
+

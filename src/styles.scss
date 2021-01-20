@@ -1,0 +1,252 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@ng-select/ng-select/themes/material.theme.css";
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 13 Nov, 2019, 11:52:33 AM
+    Author     : Puneet.Tailor
+*/
+.mat-table{
+  width: 100%;
+}
+.inputField{
+  width: 100%;
+}
+.loginBody{
+    background: url(./assets/bg.jpg) no-repeat fixed center center;
+    background-size: cover;
+    min-width: 100%;
+    min-height: 100vh;
+    overflow: auto;
+}
+header {
+  background: #fff;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+  z-index: 99;
+  position: fixed;
+  width: 100%;
+}
+
+.logoSec img {
+    width: 180px;
+    max-width: 100%;
+}
+.contentArea {
+  top: 90px;
+  bottom: 55px;
+  position: fixed;
+  width: 100%;
+  overflow-y: auto;
+  padding: 10px 0;
+}
+
+
+@media (min-width: 768px) {
+  nav.navbar {
+    padding: 20px 0;
+  }
+
+  ul.navbar-nav.nav-right {
+    display: inline-block;
+    width: 100%;
+    text-align: right;
+  }
+
+  ul.navbar-nav.nav-right li {
+    display: inline-block;
+  }
+
+  ul.dropdown-menu.dropdown-right {
+    right: 0;
+    position: absolute;
+    left: auto;
+    padding: 5px;
+    text-align: right;
+    min-width: 180px;
+  }
+
+  .dropdown.mainUser .dropdown-toggle {
+    background: #efefef;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 5px 10px;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 767px) {
+  ul.navbar-nav.nav-right {
+    position: absolute;
+    right: 15px;
+    min-width: 162px;
+    top: 62px;
+    background: #fff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  nav.navbar button {
+    position: absolute;
+    right: 15px;
+    float: right !important;
+    background: #efefef;
+    border: 1px solid #ccc;
+    top: 20px;
+    padding: 0;
+    height: 40px;
+    width: 40px;
+  }
+
+  nav.navbar {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: auto;
+  }
+
+  .dropdown.mainUser {
+    position: absolute;
+    right: 70px;
+    top: 20px;
+  }
+
+  .dropdown.mainUser > a {
+    background: #efefef;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    padding: 0;
+    text-align: center;
+    line-height: 36px;
+  }
+
+  ul.dropdown-menu.dropdown-right {
+    right: 0;
+    left: auto;
+    min-width: 180px;
+    padding: 5px;
+    text-align: right;
+  }
+}
+
+.loginSec{
+    max-width: 100%;
+    padding: 20px;
+    margin: 50px auto;
+    background: rgba(0, 0, 0, 0.2);
+}
+.topInfo{
+    padding: 10px 0;
+    background: #eee;
+    box-shadow: 0px 0px 2px 0px rgba(0,0,0,.5);
+    margin-top:-8px;
+}
+.contentSec{
+    padding: 20px 0;
+}
+.toggle.btn {
+    border: 1px solid #ccc;
+}
+span.toggle-handle.btn.btn-default {
+    background: #fff;
+}
+label.btn{
+    padding-top: 0;
+    padding-bottom: 0;
+}
+label.btn.btn-default {
+    background: #ddd;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.toggleBtn .checkbox > label > div {
+    margin: 0 !important;
+}
+.toggleBtn .checkbox label,.timer .checkbox label{
+    line-height: 34px;
+    margin: 0;
+}
+.timer .checkbox label span{
+    display: inline-block;
+    width: 80px;
+    border: 1px solid #ccc;
+    text-align: center;
+    height: 36px;
+    border-radius: 4px;
+    background: #ddd;
+}
+footer {
+  display: inline-block !important;
+  width: 100%;
+  padding-top: 15px;
+  background: #eee;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+@media(min-width:767px){
+    .loginSec{
+        width: 400px;
+    }
+}
+
+mat-table{
+    width: 100%;
+}
+.error{
+    color: red;
+}
+
+.topInfo label{
+    margin: 0;
+}
+
+.table-responsive table th {
+  background: #3f51b5;
+  color: #fff;
+}
+
+.table-responsive table tr th, .table-responsive table tr td {
+  border: 1px solid #ccc;
+  padding: 0 10px;
+}
+
+.invalid-feedback{
+  display: block!important;
+  width: 100%;
+  margin-top: .25rem;
+  font-size: 80%;
+  color: #dc3545;
+}
+
+.WeekPagination{
+  text-align: right;
+  padding-top: 20px;
+}
+
+.WeekPagination span.material-icons {
+  position: relative;
+  top: 6px;
+}
+
+.internalTable{
+  padding: 0 !important;
+}
+
+.recordNotFound{
+  color: #af1414;
+  font-size: 16px;
+  margin: 10px 20px 10px 20px;
+}

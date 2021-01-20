@@ -1,0 +1,61 @@
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Add Range</h4>
+      <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="col-sm-12 col-12 col-lg-12" >
+        <mat-card>
+          
+       <form [formGroup]="rangeForm" (ngSubmit)="submitRange(rangeForm)">
+           <mat-form-field class="inputField">
+            <input type="text"
+                   matInput 
+                   formControlName="RangeFrom"
+                   placeholder="Range From" 
+                   [ngClass]="{ 'mat-form-field-invalid ': isSubmitted && f.RangeFrom.errors }" >
+           </mat-form-field>
+           <div *ngIf="isSubmitted && f.RangeFrom.errors" class="invalid-feedback">
+            <div *ngIf="f.RangeFrom.errors.required">Range from is required</div>
+        </div> 
+           <mat-form-field class="inputField">
+            <input type="text"
+                   matInput
+                   formControlName="RangeTo"
+                   placeholder="Range To"
+                   [ngClass]="{ 'mat-form-field-invalid ': isSubmitted && f.RangeTo.errors }"  >
+           </mat-form-field>
+           <div *ngIf="isSubmitted && f.RangeTo.errors" class="invalid-feedback">
+            <div *ngIf="f.RangeTo.errors.required">Range to is required</div>
+        </div> 
+            <mat-card-actions>
+              <button mat-raised-button color="primary" >Submit</button>
+              <button type="reset" mat-raised-button color="primary" (click)="clearRangeForm()">Clear</button>
+            </mat-card-actions>
+          </form>
+        </mat-card>
+      </div>
+    </div>
+  </ng-template>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-6 col-lg-6">           
+          <button mat-raised-button 
+          color="primary" 
+          (click)="open(content);">Add New</button>
+        </div>        
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="table-responsive">
+                <app-vpn-range-table (rangeObjEmit)="editRange($event)"></app-vpn-range-table>
+            </div>
+        </div>    
+    </div>
+</div>
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="pacman">
+    <p style="color: white">Please Wait. </p>
+</ngx-spinner>

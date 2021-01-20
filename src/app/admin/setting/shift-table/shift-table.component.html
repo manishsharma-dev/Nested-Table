@@ -1,0 +1,119 @@
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Shift Management</h4>
+      <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="col-sm-12 col-12 col-lg-12" >
+        <mat-card> 
+          <form [formGroup]="ShiftForm" 
+                (ngSubmit)="submitShift(ShiftForm)">                
+                <div class="col-sm-12 col-12 col-lg-12">
+                  <mat-form-field class="formField" >
+                    <input formControlName="ShiftName" matInput placeholder="Shift Name">
+                  </mat-form-field>
+                </div>
+                <div class="col-sm-12 col-12 col-lg-12">
+                  <mat-form-field class="formField">
+                    <input matInput type="time" 
+                           placeholder="Start Time" 
+                           formControlName="ShiftStart">                    
+                  </mat-form-field>                                 
+                </div>
+                <div class="col-sm-12 col-12 col-lg-12">
+                  <mat-form-field class="formField">
+                    <input matInput type="time"
+                           placeholder="End Time"
+                           formControlName="ShiftEnd">
+                  </mat-form-field>
+                </div>
+                <div class="col-sm-12 col-12 col-lg-12">
+                <button type="submit" mat-button >submit</button>  
+                </div>
+            </form>
+        </mat-card>
+      </div>
+    </div>
+  </ng-template>
+
+  <div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-6 col-lg-6">
+           <!-- <button mat-raised-button color="primary" (click)="toggleForm()">Add New</button> -->
+          <button mat-raised-button 
+          color="primary" 
+          (click)="open(content)">Add New</button>
+        </div>                    
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="table-responsive">
+            <mat-form-field>
+                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+              </mat-form-field>
+              
+              <div class="mat-elevation-z8">
+                <table mat-table [dataSource]="dataSource" matSort> 
+                   <!-- Action Column -->
+                   <ng-container matColumnDef="Action">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+                    <td mat-cell *matCellDef="let row"> 
+                      <mat-icon title="update" class="actionButton" (click)= "editUser(row)" >edit</mat-icon>
+                    </td>
+                  </ng-container>        
+                  <!-- ID Column -->
+                  <ng-container matColumnDef="UserObjectGuid">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> UserObjectGuid </th>
+                    <td mat-cell *matCellDef="let row"> {{row.UserObjectGuid}} </td>
+                  </ng-container>
+              
+                  <!-- Name Column -->
+                  <ng-container matColumnDef="Name">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+                    <td mat-cell *matCellDef="let row"> {{row.Name}} </td>
+                  </ng-container>
+                   <!-- Email Column -->
+                   <ng-container matColumnDef="Email">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+                    <td mat-cell *matCellDef="let row"> {{row.Email}} </td>
+                  </ng-container>
+                   <!-- UserName Column -->
+                   <ng-container matColumnDef="UserName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> UserName </th>
+                    <td mat-cell *matCellDef="let row"> {{row.UserName}} </td>
+                  </ng-container>
+              
+                  <!-- Roles Column -->
+                  <ng-container matColumnDef="Roles">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Roles </th>
+                    <td mat-cell *matCellDef="let row"> {{row.Roles}} </td>
+                  </ng-container>  
+                  
+                  <!-- RolesText Column-->
+                  <ng-container matColumnDef="RolesText">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Roles </th>
+                    <td mat-cell *matCellDef="let row"> {{row.RolesText}} </td>
+                  </ng-container>  
+        
+                  <!-- IsActive Column-->
+                  <ng-container matColumnDef="IsActive">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> IsActive </th>
+                    <td mat-cell *matCellDef="let row"> {{row.IsActive}} </td>
+                  </ng-container>  
+              
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+                  </tr>
+                </table>
+              
+                <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+              </div>
+              <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="pacman">
+                <p style="color: white">Please Wait. </p>
+              </ngx-spinner>
+        </div>
+      </div>
+    </div>
+  </div> 

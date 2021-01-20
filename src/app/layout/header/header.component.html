@@ -1,0 +1,17 @@
+<header>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4 col-7">
+        <div class="logoSec">
+          <img src="../../../assets/logo.png" alt="" />
+        </div>
+      </div>
+      <div class="col-md-8 col-5">
+        <p class="userHeader">
+          Welcome <b>{{loggedUser}}</b><br />
+          <span class="admin_btn" *ngIf="isAdmin"><button mat-raised-button color="primary" (click)="goToAdmin()">Admin Panel</button> </span>
+        </p>
+      </div>
+    </div>
+  </div>
+</header>

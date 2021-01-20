@@ -1,0 +1,43 @@
+
+<form [formGroup]="loginRquestForm" (ngSubmit)="submitLoginRequest(loginRquestForm)">
+      <mat-form-field class="inputField">
+         <input type="text"
+                matInput 
+                formControlName="loginDate"
+                placeholder="Login Date" 
+                 >
+      </mat-form-field>    
+      <mat-form-field class="inputField">
+            <input type="time"
+                   matInput 
+                   formControlName="loginTime"
+                   placeholder="Login Time" 
+                   step="2"
+                    >
+      </mat-form-field>     
+      <mat-form-field class="inputField">
+            <input type="time"
+                   matInput 
+                   formControlName="logoutTime"
+                   placeholder="Logout Time" 
+                   step="2"
+                    >
+      </mat-form-field>
+
+      <mat-form-field class="inputField">
+       <mat-select formControlName="changeReason">
+             <mat-option *ngFor="let remark of remarkList" [value]="remark.Id">{{remark.Value}}</mat-option>
+       </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="inputField">
+            <textarea matInput 
+                      placeholder="Remarks"
+                      formControlName="changeReasonDesc"></textarea>    
+      </mat-form-field>  
+         <mat-card-actions>
+           <button mat-raised-button color="primary" >Submit</button>
+           <button type="reset" mat-raised-button color="primary" (click)="clearRequestForm()">Clear</button>
+         </mat-card-actions>
+</form>
+

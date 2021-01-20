@@ -1,0 +1,109 @@
+<div class="topInfo">
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <div class="" *ngIf="!isSignIn">
+          <div class="">
+            <label>
+              {{StatusFlag}}
+              <span><button mat-raised-button [disabled]="isLoggedIn" color="primary" class="signInBtn" title="Sign out" (click)="signUserIn()">Sign In</button></span>
+              <span><button mat-raised-button [disabled]="!isLoggedIn" color="warn" class="signOutBtn" (click)="signUserOut()">Sign Out</button></span>
+            </label>
+          </div>
+        </div>
+        <div class="" *ngIf="isSignIn">
+          <div class="">
+            <label>
+              You have completed signin for the day.
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="timer">
+          <div class="checkbox text-right">
+            <label>
+              Time(in hours) <span>{{TimeLogged}}</span>
+            </label>
+            <div *ngIf="isSuperAdmin">
+              <button mat-raised-button color='primary' (click)="syncTimesheet()">Sync Timesheet</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<section class="contentSec">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h3>Login History</h3>
+        <div class="table-responsive">
+          <!-- <table class="table table-bordered table-striped">
+              <thead>
+                  <tr>
+                      <th>#</th>
+                      <th>Name</th>
+                      <th>Designation</th>
+                      <th>Email</th>
+                      <th>Status</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td>1</td>
+                      <td>Puneet Tailor</td>
+                      <td>Sr. UI Consultant</td>
+                      <td>puneet.tailor@bafflesol.com</td>
+                      <td>Active</td>
+                  </tr>
+                  <tr>
+                      <td>2</td>
+                      <td>Puneet Tailor</td>
+                      <td>Sr. UI Consultant</td>
+                      <td>puneet.tailor@bafflesol.com</td>
+                      <td>Active</td>
+                  </tr>
+                  <tr>
+                      <td>3</td>
+                      <td>Puneet Tailor</td>
+                      <td>Sr. UI Consultant</td>
+                      <td>puneet.tailor@bafflesol.com</td>
+                      <td>Active</td>
+                  </tr>
+                  <tr>
+                      <td>4</td>
+                      <td>Puneet Tailor</td>
+                      <td>Sr. UI Consultant</td>
+                      <td>puneet.tailor@bafflesol.com</td>
+                      <td>Active</td>
+                  </tr>
+                  <tr>
+                      <td>5</td>
+                      <td>Puneet Tailor</td>
+                      <td>Sr. UI Consultant</td>
+                      <td>puneet.tailor@bafflesol.com</td>
+                      <td>Active</td>
+                  </tr>
+              </tbody>
+          </table> -->
+          <mat-tab-group>
+            <mat-tab label="My Data">
+              <app-data-table [TableDataArr]="RecordHistory"></app-data-table>
+            </mat-tab>
+            <mat-tab label="Reportees">
+              <app-reportee-table></app-reportee-table>
+            </mat-tab>
+            <mat-tab label="Department">
+              <app-department-table></app-department-table>
+            </mat-tab>
+          </mat-tab-group>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="pacman">
+  <p style="color: white">Please Wait. </p>
+</ngx-spinner>
